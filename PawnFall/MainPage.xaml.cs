@@ -27,5 +27,11 @@ namespace PawnFall
         {
             this.InitializeComponent();
         }
+
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

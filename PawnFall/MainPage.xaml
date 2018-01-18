@@ -8,6 +8,97 @@
     mc:Ignorable="d">
 
     <Grid x:Name="rootGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+        <Viewbox Stretch="Uniform" HorizontalAlignment="Center" Margin="220,60,20,20">
+            <Grid x:Name="chessboard" Height="280" Width="280" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Row0 -->
+                <Rectangle Grid.Row="0" Grid.Column="0" Fill="Beige"/>
+                <Rectangle Grid.Row="0" Grid.Column="1" Fill="LightGreen"/>
+                <Rectangle Grid.Row="0" Grid.Column="2" Fill="Beige"/>
+                <Rectangle Grid.Row="0" Grid.Column="3" Fill="LightGreen"/>
+                <Rectangle Grid.Row="0" Grid.Column="4" Fill="Beige"/>
+                <Rectangle Grid.Row="0" Grid.Column="5" Fill="LightGreen"/>
+                <Rectangle Grid.Row="0" Grid.Column="6" Fill="Beige"/>
+                <!-- Row1 -->
+                <Rectangle Grid.Row="1" Grid.Column="0" Fill="LightGreen"/>
+                <Rectangle Grid.Row="1" Grid.Column="1" Fill="Beige"/>
+                <Rectangle Grid.Row="1" Grid.Column="2" Fill="LightGreen"/>
+                <Rectangle Grid.Row="1" Grid.Column="3" Fill="Beige"/>
+                <Rectangle Grid.Row="1" Grid.Column="4" Fill="LightGreen"/>
+                <Rectangle Grid.Row="1" Grid.Column="5" Fill="Beige"/>
+                <Rectangle Grid.Row="1" Grid.Column="6" Fill="LightGreen"/>
+                <!-- Row2 -->
+                <Rectangle Grid.Row="2" Grid.Column="0" Fill="Beige"/>
+                <Rectangle Grid.Row="2" Grid.Column="1" Fill="LightGreen"/>
+                <Rectangle Grid.Row="2" Grid.Column="2" Fill="Beige"/>
+                <Rectangle Grid.Row="2" Grid.Column="3" Fill="LightGreen"/>
+                <Rectangle Grid.Row="2" Grid.Column="4" Fill="Beige"/>
+                <Rectangle Grid.Row="2" Grid.Column="5" Fill="LightGreen"/>
+                <Rectangle Grid.Row="2" Grid.Column="6" Fill="Beige"/>
+                <!-- Row3 -->
+                <Rectangle Grid.Row="3" Grid.Column="0" Fill="LightGreen"/>
+                <Rectangle Grid.Row="3" Grid.Column="1" Fill="Beige"/>
+                <Rectangle Grid.Row="3" Grid.Column="2" Fill="LightGreen"/>
+                <Rectangle Grid.Row="3" Grid.Column="3" Fill="Beige"/>
+                <Rectangle Grid.Row="3" Grid.Column="4" Fill="LightGreen"/>
+                <Rectangle Grid.Row="3" Grid.Column="5" Fill="Beige"/>
+                <Rectangle Grid.Row="3" Grid.Column="6" Fill="LightGreen"/>
+                <!-- Row4 -->
+                <Rectangle Grid.Row="4" Grid.Column="0" Fill="Beige"/>
+                <Rectangle Grid.Row="4" Grid.Column="1" Fill="LightGreen"/>
+                <Rectangle Grid.Row="4" Grid.Column="2" Fill="Beige"/>
+                <Rectangle Grid.Row="4" Grid.Column="3" Fill="LightGreen"/>
+                <Rectangle Grid.Row="4" Grid.Column="4" Fill="Beige"/>
+                <Rectangle Grid.Row="4" Grid.Column="5" Fill="LightGreen"/>
+                <Rectangle Grid.Row="4" Grid.Column="6" Fill="Beige"/>
+                <!-- Row5 -->
+                <Rectangle Grid.Row="5" Grid.Column="0" Fill="LightGreen"/>
+                <Rectangle Grid.Row="5" Grid.Column="1" Fill="Beige"/>
+                <Rectangle Grid.Row="5" Grid.Column="2" Fill="LightGreen"/>
+                <Rectangle Grid.Row="5" Grid.Column="3" Fill="Beige"/>
+                <Rectangle Grid.Row="5" Grid.Column="4" Fill="LightGreen"/>
+                <Rectangle Grid.Row="5" Grid.Column="5" Fill="Beige"/>
+                <Rectangle Grid.Row="5" Grid.Column="6" Fill="LightGreen"/>
+                <!-- Row6 -->
+                <Rectangle Grid.Row="6" Grid.Column="0" Fill="Beige"/>
+                <Rectangle Grid.Row="6" Grid.Column="1" Fill="LightGreen"/>
+                <Rectangle Grid.Row="6" Grid.Column="2" Fill="Beige"/>
+                <Rectangle Grid.Row="6" Grid.Column="3" Fill="LightGreen"/>
+                <Rectangle Grid.Row="6" Grid.Column="4" Fill="Beige"/>
+                <Rectangle Grid.Row="6" Grid.Column="5" Fill="LightGreen"/>
+                <Rectangle Grid.Row="6" Grid.Column="6" Fill="Beige"/>
+                <!-- Row7 -->
+                <Rectangle Grid.Row="7" Grid.Column="0" Fill="LightGreen"/>
+                <Rectangle Grid.Row="7" Grid.Column="1" Fill="Beige"/>
+                <Rectangle Grid.Row="7" Grid.Column="2" Fill="LightGreen"/>
+                <Rectangle Grid.Row="7" Grid.Column="3" Fill="Beige"/>
+                <Rectangle Grid.Row="7" Grid.Column="4" Fill="LightGreen"/>
+                <Rectangle Grid.Row="7" Grid.Column="5" Fill="Beige"/>
+                <Rectangle Grid.Row="7" Grid.Column="6" Fill="LightGreen"/>
+            </Grid>
+        </Viewbox>
+        <Rectangle x:Name="rectTopBar" VerticalAlignment="Top" Height="40" Margin="0, 0, 0, 0" Fill="DarkSlateGray" />
+        <Rectangle x:Name="rectSideBar" Width="200" HorizontalAlignment="Left" Margin="0, 40, 0, 0" Fill="DarkGray" />
+        <TextBlock x:Name="txtblkGameTitle" Foreground="White" HorizontalAlignment="Center" Text="P A W N F A L L" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30"/>
+        <Button x:Name="btnMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="40" Content="+" Click="btnMenu_Click"/>
     </Grid>
 </Page>
