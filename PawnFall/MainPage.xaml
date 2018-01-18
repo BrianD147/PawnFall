@@ -8,10 +8,11 @@
     mc:Ignorable="d">
 
     <Grid x:Name="rootGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Viewbox Stretch="Uniform" HorizontalAlignment="Center" Margin="220,60,20,20">
-            <Grid x:Name="chessboard" Height="280" Width="280" >
+        <!-- Set Viewbox to allow content to be resized as the window size is changed-->
+        <Viewbox x:Name="vbChessboard" Stretch="Uniform" HorizontalAlignment="Center" Margin="120,60,20,20">
+            <!-- Grid to hold chessboard -->
+            <Grid x:Name="gChessboard" Height="280" Width="280" >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -86,19 +87,19 @@
                 <Rectangle Grid.Row="6" Grid.Column="4" Fill="Beige"/>
                 <Rectangle Grid.Row="6" Grid.Column="5" Fill="LightGreen"/>
                 <Rectangle Grid.Row="6" Grid.Column="6" Fill="Beige"/>
-                <!-- Row7 -->
-                <Rectangle Grid.Row="7" Grid.Column="0" Fill="LightGreen"/>
-                <Rectangle Grid.Row="7" Grid.Column="1" Fill="Beige"/>
-                <Rectangle Grid.Row="7" Grid.Column="2" Fill="LightGreen"/>
-                <Rectangle Grid.Row="7" Grid.Column="3" Fill="Beige"/>
-                <Rectangle Grid.Row="7" Grid.Column="4" Fill="LightGreen"/>
-                <Rectangle Grid.Row="7" Grid.Column="5" Fill="Beige"/>
-                <Rectangle Grid.Row="7" Grid.Column="6" Fill="LightGreen"/>
             </Grid>
         </Viewbox>
+        <!-- Top bar background Rectangle -->
         <Rectangle x:Name="rectTopBar" VerticalAlignment="Top" Height="40" Margin="0, 0, 0, 0" Fill="DarkSlateGray" />
-        <Rectangle x:Name="rectSideBar" Width="200" HorizontalAlignment="Left" Margin="0, 40, 0, 0" Fill="DarkGray" />
-        <TextBlock x:Name="txtblkGameTitle" Foreground="White" HorizontalAlignment="Center" Text="P A W N F A L L" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30"/>
-        <Button x:Name="btnMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="40" Content="+" Click="btnMenu_Click"/>
+        <!-- Title text (PAWNFALL) -->
+        <TextBlock x:Name="tblGameTitle" Foreground="White" HorizontalAlignment="Center" Text="P A W N F A L L" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30"/>
+        <!-- Side bar background Rectangle -->
+        <Rectangle x:Name="rectSideBar" Width="100" HorizontalAlignment="Left" Margin="0, 40, 0, 0" Fill="DarkGray" />
+        <!-- Menu logo -->
+        <Rectangle Height="4" Width="20" Margin="10, 10, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="White"/>
+        <Rectangle Height="4" Width="20" Margin="10, 18, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="White"/>
+        <Rectangle Height="4" Width="20" Margin="10, 26, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="White"/>
+        <!-- Menu button (Opacity set to 0 to be invisiable yet clickable) -->
+        <Button x:Name="btnMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="5, 5, 0, 0" Click="btnMenu_Click" Opacity="0"/>
     </Grid>
 </Page>
