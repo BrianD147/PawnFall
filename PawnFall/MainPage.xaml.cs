@@ -26,15 +26,55 @@ namespace PawnFall
     public sealed partial class MainPage : Page
     {
         int[,] chessboardMap = new int[7, 7]; //an integer array of chesspieces
-        Rectangle[,] chessSquares = new Rectangle[8, 8]; //a 2 dimensional array of all chessboard squares
+        Rectangle[,] chessSquares = new Rectangle[7, 7]; //a 2 dimensional array of all chessboard squares
+        Rectangle[,] backgroundBoard = new Rectangle[7, 7]; //a 2 dimentional array of the chessboard background itself
+        int color = 0; //counter to determine wether square should be white or green
 
         public MainPage()
         {
             this.InitializeComponent();
-            setup();
+            BoardSetup();
+            PieceSetup();
         }
 
-        private void setup() //sets up the chessboard
+        private void BoardSetup() //Sets up the chessboard background grid
+        {
+            //load pieces into correct positions
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    LoadSquares(i, j, color);
+                    color++;
+                }
+
+            }
+        }
+
+        private void LoadSquares(int x, int y, int color)
+        {
+            Rectangle temp = new Rectangle
+            {
+                Height = 40,
+                Width = 40
+            };
+
+            if (color%2 == 0)
+            {
+                temp.Fill = new SolidColorBrush(Colors.LightGreen);
+            }
+            else
+            {
+                temp.Fill = new SolidColorBrush(Colors.Beige);
+            }
+
+            Grid.SetRow(temp, y);
+            Grid.SetColumn(temp, x);
+
+            gChessboard.Children.Add(temp);
+        }
+
+        private void PieceSetup() //sets up the chessboard
         {
             //populate array with piece values
             //0: blank space
@@ -54,64 +94,70 @@ namespace PawnFall
             //set pawns
             for (int i=0; i<7; i++)
             {
-                chessboardMap[1, i] = 1;
+                chessboardMap[5, i] = 1;
             }
 
             //set knights
-            chessboardMap[0, 1] = 2;
-            chessboardMap[0, 5] = 2;
+            chessboardMap[6, 1] = 2;
+            chessboardMap[6, 5] = 2;
 
             //set king
-            chessboardMap[0, 3] = 3;
+            chessboardMap[6, 3] = 3;
 
             //load pieces into correct positions
             for (int i=0; i<7; i++)
             {
                 for(int j=0; j<7; j++)
                 {
-                    loadPieces(chessboardMap[i, j], i, j);
+                    LoadPieces(chessboardMap[i, j], i, j);
                 }
 
             }
 
         }
 
-        private void loadPieces(int piece, int x, int y)//loads a chess piece into correct position
+        private void LoadPieces(int piece, int x, int y)//loads a chess piece into correct position
         {
-            Rectangle temp = new Rectangle();
-            temp.Height = vbChessboard.Height / 7;
-            temp.Width = vbChessboard.Width / 7;
+            Rectangle temp = new Rectangle //declares a temp rectangle which will be given a piece and put onto the chessboard position
+            {
+                Height = 40,
+                Width = 40,
+                //vbChessboard.Width / 7,
 
-            temp.Stroke = new SolidColorBrush(Colors.LawnGreen);
-            temp.StrokeThickness = 0;
+                StrokeThickness = 0
+            };
+
             ImageBrush img = new ImageBrush();
             switch (piece)
             {
                 case 0:
+                    temp.Fill = new SolidColorBrush(Colors.Transparent);
                     break;
                 case 1:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/pawnWhite.png"));
+                    temp.Fill = img;
                     break;
                 case 2:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/knightWhite.png"));
+                    temp.Fill = img;
                     break;
                 case 3:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/kingWhite.png"));
+                    temp.Fill = img;
                     break;
             }
-            temp.Fill = img;
 
             Grid.SetRow(temp, x);
             Grid.SetColumn(temp, y);
             if (chessSquares[x, y] != null)
-                gChessboard.Children.Remove(chessSquares[x, y]);
+                gPieces.Children.Remove(chessSquares[x, y]);
             chessSquares[x, y] = temp;
-            gChessboard.Children.Add(chessSquares[x, y]);
+            gPieces.Children.Add(chessSquares[x, y]);
         }
 
-        private void btnMenu_Click(object sender, RoutedEventArgs e)
+        private void BtnMenu_Click(object sender, RoutedEventArgs e) //Menu
         {
-            tblGameTitle.Text = "Test";
+            //tblGameTitle.Text = "Test";
         }
 
     }
