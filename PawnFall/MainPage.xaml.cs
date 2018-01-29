@@ -29,6 +29,8 @@ namespace PawnFall
         Rectangle[,] chessSquares = new Rectangle[7, 7]; //a 2 dimensional array of all chessboard squares
         Rectangle[,] backgroundBoard = new Rectangle[7, 7]; //a 2 dimentional array of the chessboard background itself
         int color = 0; //counter to determine wether square should be white or green
+        bool isPathHighlighted = false;
+        int[] pieceCoordinate = new int[2];
 
         public MainPage()
         {
@@ -122,11 +124,11 @@ namespace PawnFall
             {
                 Height = 40,
                 Width = 40,
-                //vbChessboard.Width / 7,
-
-                StrokeThickness = 0
             };
+            temp.Tapped += SquareTapped;
 
+            temp.Stroke = new SolidColorBrush(Colors.Yellow);
+            temp.StrokeThickness = 0;
             ImageBrush img = new ImageBrush();
             switch (piece)
             {
@@ -134,15 +136,18 @@ namespace PawnFall
                     temp.Fill = new SolidColorBrush(Colors.Transparent);
                     break;
                 case 1:
-                    img.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/pawnWhite.png"));
+                    img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/pawnWhite.png", UriKind.RelativeOrAbsolute));
+                    //temp.Fill = new SolidColorBrush(Colors.Yellow);
                     temp.Fill = img;
                     break;
                 case 2:
-                    img.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/knightWhite.png"));
+                    img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/knightWhite.png", UriKind.RelativeOrAbsolute));
+                    //temp.Fill = new SolidColorBrush(Colors.Blue);
                     temp.Fill = img;
                     break;
                 case 3:
-                    img.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/kingWhite.png"));
+                    img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/kingWhite.png", UriKind.RelativeOrAbsolute));
+                    //temp.Fill = new SolidColorBrush(Colors.Red);
                     temp.Fill = img;
                     break;
             }
@@ -155,7 +160,27 @@ namespace PawnFall
             gPieces.Children.Add(chessSquares[x, y]);
         }
 
-        private void BtnMenu_Click(object sender, RoutedEventArgs e) //Menu
+        private void SquareTapped(object sender, TappedRoutedEventArgs e) // Chessboard square is tapped
+        {
+            Rectangle rect = sender as Rectangle;
+            int row = Grid.GetRow(rect);
+            int column = Grid.GetColumn(rect);
+            
+            if(isPathHighlighted == false)
+            {
+                ShowValidSquares(row, column);
+                isPathHighlighted = true;
+                pieceCoordinate[0] = row;
+                pieceCoordinate[1] = column;
+            }
+        }
+
+        private void ShowValidSquares(int x, int y)
+        {
+
+        }
+
+        private void BtnMenu_Click(object sender, RoutedEventArgs e) //Menu button click
         {
             //tblGameTitle.Text = "Test";
         }
