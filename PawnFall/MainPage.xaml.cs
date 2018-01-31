@@ -128,7 +128,7 @@ namespace PawnFall
             temp.Tapped += SquareTapped;
 
             temp.Stroke = new SolidColorBrush(Colors.Yellow);
-            temp.StrokeThickness = 0;
+
             ImageBrush img = new ImageBrush();
             switch (piece)
             {
@@ -137,20 +137,22 @@ namespace PawnFall
                     break;
                 case 1:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/pawnWhite.png", UriKind.RelativeOrAbsolute));
-                    //temp.Fill = new SolidColorBrush(Colors.Yellow);
                     temp.Fill = img;
+                    temp.Stroke = new SolidColorBrush(Colors.YellowGreen);
                     break;
                 case 2:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/knightWhite.png", UriKind.RelativeOrAbsolute));
-                    //temp.Fill = new SolidColorBrush(Colors.Blue);
                     temp.Fill = img;
+                    temp.Stroke = new SolidColorBrush(Colors.YellowGreen);
                     break;
                 case 3:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/kingWhite.png", UriKind.RelativeOrAbsolute));
-                    //temp.Fill = new SolidColorBrush(Colors.Red);
                     temp.Fill = img;
+                    temp.Stroke = new SolidColorBrush(Colors.YellowGreen);
                     break;
             }
+
+            temp.StrokeThickness = 0;
 
             Grid.SetRow(temp, x);
             Grid.SetColumn(temp, y);
@@ -165,8 +167,8 @@ namespace PawnFall
             Rectangle rect = sender as Rectangle;
             int row = Grid.GetRow(rect);
             int column = Grid.GetColumn(rect);
-            
-            if(isPathHighlighted == false)
+
+            if (isPathHighlighted == false)
             {
                 ShowValidSquares(row, column);
                 isPathHighlighted = true;
@@ -177,7 +179,39 @@ namespace PawnFall
 
         private void ShowValidSquares(int x, int y)
         {
+            switch (chessboardMap[x, y])
+            {
+                case 1: // White pawn
+                    // If pawn has space infront of it
+                    if (chessboardMap[x - 1, y] == 0)
+                    {
+                        HighlightTile(x - 1, y);
+                        // If pawn is at starting position offer a 2 stepped move
+                        if (x == 5 && chessboardMap[x - 2, y] == 0)
+                        {
+                            HighlightTile(x - 2, y);
+                        }
+                    }
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+            HighlightTile(x, y);
+        }
 
+        private void HighlightTile(int x, int y)
+        {
+            if (chessSquares[x, y].StrokeThickness == 0)
+            {
+                chessSquares[x, y].StrokeThickness = 4;
+            }
+            else
+            {
+                chessSquares[x, y].StrokeThickness = 0;
+            }
         }
 
         private void BtnMenu_Click(object sender, RoutedEventArgs e) //Menu button click
