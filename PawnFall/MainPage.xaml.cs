@@ -106,6 +106,9 @@ namespace PawnFall
             //set king
             chessboardMap[6, 3] = 3;
 
+            //set black pawn (for testing)
+            chessboardMap[4, 2] = -1;
+
             //load pieces into correct positions
             for (int i=0; i<7; i++)
             {
@@ -127,7 +130,7 @@ namespace PawnFall
             };
             temp.Tapped += SquareTapped;
 
-            temp.Stroke = new SolidColorBrush(Colors.Yellow);
+            temp.Stroke = new SolidColorBrush(Colors.Gold);
 
             ImageBrush img = new ImageBrush();
             switch (piece)
@@ -138,17 +141,22 @@ namespace PawnFall
                 case 1:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/pawnWhite.png", UriKind.RelativeOrAbsolute));
                     temp.Fill = img;
-                    temp.Stroke = new SolidColorBrush(Colors.YellowGreen);
+                    temp.Stroke = new SolidColorBrush(Colors.Gray);
                     break;
                 case 2:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/knightWhite.png", UriKind.RelativeOrAbsolute));
                     temp.Fill = img;
-                    temp.Stroke = new SolidColorBrush(Colors.YellowGreen);
+                    temp.Stroke = new SolidColorBrush(Colors.Gray);
                     break;
                 case 3:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/kingWhite.png", UriKind.RelativeOrAbsolute));
                     temp.Fill = img;
-                    temp.Stroke = new SolidColorBrush(Colors.YellowGreen);
+                    temp.Stroke = new SolidColorBrush(Colors.Gray);
+                    break;
+                case -1:
+                    img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/pawnBlack.png", UriKind.RelativeOrAbsolute));
+                    temp.Fill = img;
+                    temp.Stroke = new SolidColorBrush(Colors.Gray);
                     break;
             }
 
@@ -192,9 +200,21 @@ namespace PawnFall
                             HighlightTile(x - 2, y);
                         }
                     }
-                    
+
+                    //Taking pieces
+                    if (chessboardMap[x - 1, y + 1] < 0)
+                    {
+                        HighlightTile(x - 1, y + 1);
+                    }
+
+                    if (chessboardMap[x - 1, y - 1] < 0)
+                    {
+                        HighlightTile(x - 1, y - 1);
+                    }
+
+
                     break;
-                case 2:
+                case 2: // White Knight
                     break;
                 case 3:
                     break;
