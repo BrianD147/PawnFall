@@ -107,7 +107,7 @@ namespace PawnFall
             chessboardMap[6, 3] = 3;
 
             //set black pawn (for testing)
-            chessboardMap[4, 2] = -1;
+            chessboardMap[4, 1] = -1;
 
             //load pieces into correct positions
             for (int i=0; i<7; i++)
@@ -179,7 +179,7 @@ namespace PawnFall
             if (isPathHighlighted == false)
             {
                 ShowValidSquares(row, column);
-                isPathHighlighted = true;
+                //isPathHighlighted = true;
                 pieceCoordinate[0] = row;
                 pieceCoordinate[1] = column;
             }
@@ -202,15 +202,42 @@ namespace PawnFall
                     }
 
                     //Taking pieces
-                    if (chessboardMap[x - 1, y + 1] < 0)
+                    //If pawn isnt against an edge check both diagonals
+                    if (y > 0 && y < 6)
                     {
-                        HighlightTile(x - 1, y + 1);
+                        //Check right diagonal
+                        if (chessboardMap[x - 1, y + 1] < 0)
+                        {
+                            HighlightTile(x - 1, y + 1);
+                        }
+
+                        //Check left diagonal
+                        if (chessboardMap[x - 1, y - 1] < 0)
+                        {
+                            HighlightTile(x - 1, y - 1);
+                        }
                     }
 
-                    if (chessboardMap[x - 1, y - 1] < 0)
+                    //If pawn is against left edge only check right diagonal
+                    if (y == 0)
                     {
-                        HighlightTile(x - 1, y - 1);
+                        //Check right diagonal
+                        if (chessboardMap[x - 1, y + 1] < 0)
+                        {
+                            HighlightTile(x - 1, y + 1);
+                        }
                     }
+
+                    //If pawn is against right edge only check left diagonal
+                    if (y == 6)
+                    {
+                        //Check left diagonal
+                        if (chessboardMap[x - 1, y - 1] < 0)
+                        {
+                            HighlightTile(x - 1, y - 1);
+                        }
+                    }
+
 
 
                     break;
