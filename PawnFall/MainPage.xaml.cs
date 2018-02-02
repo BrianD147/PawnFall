@@ -191,7 +191,7 @@ namespace PawnFall
                 if (chessSquares[row, column].StrokeThickness == 3)
                 {
                     ClearHighlights();
-                    MovePiece(row, column);
+                    MovePiece(chessboardMap[row, column], pieceCoordinate[0], pieceCoordinate[1], row, column);
                     isPathHighlighted = false;
                 }
                 else
@@ -202,9 +202,15 @@ namespace PawnFall
             }
         }
 
-        private void MovePiece(int row, int column)
+        private void MovePiece(int piece, int x, int y, int destX, int destY)
         {
-            throw new NotImplementedException();
+            //if (piece != 0 && (x != destX || y != destY))
+            //{
+                chessboardMap[destX, destY] = chessboardMap[x, y];
+                LoadPieces(chessboardMap[destX, destY], destX, destY);
+            //}
+            chessboardMap[x, y] = 0;
+            LoadPieces(chessboardMap[x, y], x, y);
         }
 
         private void ClearHighlights()
