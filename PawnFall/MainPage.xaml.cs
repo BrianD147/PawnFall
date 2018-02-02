@@ -96,18 +96,20 @@ namespace PawnFall
             //set pawns
             for (int i=0; i<7; i++)
             {
-                chessboardMap[5, i] = 1;
+                //chessboardMap[5, i] = 1;
             }
 
             //set knights
-            chessboardMap[6, 1] = 2;
-            chessboardMap[6, 5] = 2;
+            //chessboardMap[6, 1] = 2;
+            //chessboardMap[6, 5] = 2;
+
+            chessboardMap[2, 1] = 2;
 
             //set king
-            chessboardMap[6, 3] = 3;
+            //chessboardMap[6, 3] = 3;
 
             //set black pawn (for testing)
-            chessboardMap[4, 1] = -1;
+            chessboardMap[4, 2] = -1;
 
             //load pieces into correct positions
             for (int i=0; i<7; i++)
@@ -128,7 +130,11 @@ namespace PawnFall
                 Height = 40,
                 Width = 40,
             };
-            temp.Tapped += SquareTapped;
+            //only allow square to be tapped if its a players piece
+            if (piece > 0)
+            {
+                temp.Tapped += SquareTapped;
+            }
 
             temp.Stroke = new SolidColorBrush(Colors.Gold);
 
@@ -141,22 +147,22 @@ namespace PawnFall
                 case 1:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/pawnWhite.png", UriKind.RelativeOrAbsolute));
                     temp.Fill = img;
-                    temp.Stroke = new SolidColorBrush(Colors.Gray);
+                    //temp.Stroke = new SolidColorBrush(Colors.Gray);
                     break;
                 case 2:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/knightWhite.png", UriKind.RelativeOrAbsolute));
                     temp.Fill = img;
-                    temp.Stroke = new SolidColorBrush(Colors.Gray);
+                    //temp.Stroke = new SolidColorBrush(Colors.Gray);
                     break;
                 case 3:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/kingWhite.png", UriKind.RelativeOrAbsolute));
                     temp.Fill = img;
-                    temp.Stroke = new SolidColorBrush(Colors.Gray);
+                    //temp.Stroke = new SolidColorBrush(Colors.Gray);
                     break;
                 case -1:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/pawnBlack.png", UriKind.RelativeOrAbsolute));
                     temp.Fill = img;
-                    temp.Stroke = new SolidColorBrush(Colors.Gray);
+                    //temp.Stroke = new SolidColorBrush(Colors.Gray);
                     break;
             }
 
@@ -242,6 +248,70 @@ namespace PawnFall
 
                     break;
                 case 2: // White Knight
+                    //Check for 1 oclock position
+                    if (x > 1 && y < 6)
+                    {
+                        if (chessboardMap[x - 2, y + 1] <= 0)
+                        {
+                            HighlightTile(x - 2, y + 1);
+                        }
+                    }
+                    //Check for 2 oclock position
+                    if (x > 0 && y < 5)
+                    {
+                        if (chessboardMap[x - 1, y + 2] <= 0)
+                        {
+                            HighlightTile(x - 1, y + 2);
+                        }
+                    }
+                    //Check for 4 oclock position
+                    if (x < 6 && y < 5)
+                    {
+                        if (chessboardMap[x + 1, y + 2] <= 0)
+                        {
+                            HighlightTile(x + 1, y + 2);
+                        }
+                    }
+                    //Check for 5 oclock position
+                    if (x < 5 && y < 6)
+                    {
+                        if (chessboardMap[x + 2, y + 1] <= 0)
+                        {
+                            HighlightTile(x + 2, y + 1);
+                        }
+                    }
+                    //Check for 7 oclock position
+                    if (x < 5 && y > 0)
+                    {
+                        if (chessboardMap[x + 2, y - 1] <= 0)
+                        {
+                            HighlightTile(x + 2, y - 1);
+                        }
+                    }
+                    //Check for 8 oclock position
+                    if (x < 6 && y > 1)
+                    {
+                        if (chessboardMap[x + 1, y - 2] <= 0)
+                        {
+                            HighlightTile(x + 1, y - 2);
+                        }
+                    }
+                    //Check for 10 oclock position
+                    if (x > 0 && y > 1)
+                    {
+                        if (chessboardMap[x - 1, y - 2] <= 0)
+                        {
+                            HighlightTile(x - 1, y - 2);
+                        }
+                    }
+                    //Check for 11 oclock position
+                    if (x > 1 && y > 0)
+                    {
+                        if (chessboardMap[x - 2, y - 1] <= 0)
+                        {
+                            HighlightTile(x - 2, y - 1);
+                        }
+                    }
                     break;
                 case 3:
                     break;
