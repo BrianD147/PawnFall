@@ -131,11 +131,7 @@ namespace PawnFall
                 Height = 40,
                 Width = 40,
             };
-            //only allow square to be tapped if its a players piece
-            if (piece > 0)
-            {
-                temp.Tapped += SquareTapped;
-            }
+            temp.Tapped += SquareTapped;
 
             temp.Stroke = new SolidColorBrush(Colors.Gold);
 
@@ -186,26 +182,50 @@ namespace PawnFall
             if (isPathHighlighted == false)
             {
                 ShowValidSquares(row, column);
-                //isPathHighlighted = true;
+                isPathHighlighted = true;
                 pieceCoordinate[0] = row;
                 pieceCoordinate[1] = column;
             }
+            else
+            {
+                if (chessSquares[row, column].StrokeThickness == 3)
+                {
+                    ClearHighlights();
+                    MovePiece(row, column);
+                    isPathHighlighted = false;
+                }
+                else
+                {
+                    ClearHighlights();
+                    isPathHighlighted = false;
+                }
+            }
         }
 
-        private void ShowValidSquares(int x, int y)
+        private void MovePiece(int row, int column)
         {
-            //first clear the current highlights on board
+            throw new NotImplementedException();
+        }
+
+        private void ClearHighlights()
+        {
+            //clear the current highlights on board
             for (int i = 0; i < 7; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
                     chessSquares[i, j].StrokeThickness = 0;
                 }
-
             }
+        }
+
+        private void ShowValidSquares(int x, int y)
+        {
             switch (chessboardMap[x, y])
             {
                 case 1: // White pawn
+                    HighlightSelectedTile(x, y);
+
                     // If pawn has space infront of it
                     if (chessboardMap[x - 1, y] == 0)
                     {
@@ -258,6 +278,8 @@ namespace PawnFall
 
                     break;
                 case 2: // White Knight
+                    HighlightSelectedTile(x, y);
+
                     //Check for 1 oclock position
                     if (x > 1 && y < 6)
                     {
@@ -324,6 +346,8 @@ namespace PawnFall
                     }
                     break;
                 case 3:
+                    HighlightSelectedTile(x, y);
+
                     //Check for NW position
                     if (x > 0 && y > 0)
                     {
@@ -390,14 +414,26 @@ namespace PawnFall
                     }
                     break;
             }
-            HighlightTile(x, y);
+        }
+
+        private void HighlightSelectedTile(int x, int y)
+        {
+            chessSquares[x, y].Stroke = new SolidColorBrush(Colors.Gray);
+            if (chessSquares[x, y].StrokeThickness == 0)
+            {
+                chessSquares[x, y].StrokeThickness = 2.9;
+            }
+            else
+            {
+                chessSquares[x, y].StrokeThickness = 0;
+            }
         }
 
         private void HighlightTile(int x, int y)
         {
             if (chessSquares[x, y].StrokeThickness == 0)
             {
-                chessSquares[x, y].StrokeThickness = 4;
+                chessSquares[x, y].StrokeThickness = 3;
             }
             else
             {
