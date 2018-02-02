@@ -213,6 +213,10 @@ namespace PawnFall
                     }
                 }
             }
+            Random rnd = new Random();
+            int pos = rnd.Next(6);
+            chessboardMap[0, pos] = -1;
+            LoadPieces(chessboardMap[0, pos], 0, pos);
         }
         
 
