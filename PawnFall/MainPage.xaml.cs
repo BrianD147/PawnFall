@@ -104,6 +104,7 @@ namespace PawnFall
             //chessboardMap[6, 5] = 2;
 
             chessboardMap[2, 1] = 2;
+            chessboardMap[5, 3] = 2;
 
             //set king
             //chessboardMap[6, 3] = 3;
@@ -193,6 +194,15 @@ namespace PawnFall
 
         private void ShowValidSquares(int x, int y)
         {
+            //first clear the current highlights on board
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    chessSquares[i, j].StrokeThickness = 0;
+                }
+
+            }
             switch (chessboardMap[x, y])
             {
                 case 1: // White pawn
