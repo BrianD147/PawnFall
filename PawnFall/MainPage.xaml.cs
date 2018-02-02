@@ -29,8 +29,9 @@ namespace PawnFall
         Rectangle[,] chessSquares = new Rectangle[7, 7]; //a 2 dimensional array of all chessboard squares
         Rectangle[,] backgroundBoard = new Rectangle[7, 7]; //a 2 dimentional array of the chessboard background itself
         int color = 0; //counter to determine wether square should be white or green
-        bool isPathHighlighted = false;
-        int[] pieceCoordinate = new int[2];
+        bool isPathHighlighted = false; //bool to tell if a square is highlighted or not
+        int[] pieceCoordinate = new int[2]; //holds tapped piece coordinated if player wants to move it to another square
+        int[,] blackPawns = new int[7, 7]; // integer array of black pawn positions
 
         public MainPage()
         {
@@ -96,21 +97,18 @@ namespace PawnFall
             //set pawns
             for (int i=0; i<7; i++)
             {
-                //chessboardMap[5, i] = 1;
+                chessboardMap[5, i] = 1;
             }
 
             //set knights
-            //chessboardMap[6, 1] = 2;
-            //chessboardMap[6, 5] = 2;
-
-            chessboardMap[3, 4] = 2;
-            chessboardMap[3, 3] = 3;
+            chessboardMap[6, 1] = 2;
+            chessboardMap[6, 5] = 2;
 
             //set king
-            //chessboardMap[6, 3] = 3;
+            chessboardMap[6, 3] = 3;
 
             //set black pawn (for testing)
-            chessboardMap[4, 2] = -1;
+            chessboardMap[0, 2] = -1;
 
             //load pieces into correct positions
             for (int i=0; i<7; i++)
@@ -193,6 +191,7 @@ namespace PawnFall
                     ClearHighlights();
                     MovePiece(chessboardMap[row, column], pieceCoordinate[0], pieceCoordinate[1], row, column);
                     isPathHighlighted = false;
+                    OpponentsTurn();
                 }
                 else
                 {
@@ -201,14 +200,27 @@ namespace PawnFall
                 }
             }
         }
+        
+        private void OpponentsTurn()
+        {
+            for (int i = 6; i >= 0; i--)
+            {
+                for (int j = 6; j >= 0; j--)
+                {
+                    if (chessboardMap[i, j] == -1)
+                    {
+                        MovePiece(chessboardMap[i+1, j], i, j, i+1, j);
+                    }
+                }
+            }
+        }
+        
 
         private void MovePiece(int piece, int x, int y, int destX, int destY)
         {
-            //if (piece != 0 && (x != destX || y != destY))
-            //{
-                chessboardMap[destX, destY] = chessboardMap[x, y];
-                LoadPieces(chessboardMap[destX, destY], destX, destY);
-            //}
+            chessboardMap[destX, destY] = chessboardMap[x, y];
+            LoadPieces(chessboardMap[destX, destY], destX, destY);
+
             chessboardMap[x, y] = 0;
             LoadPieces(chessboardMap[x, y], x, y);
         }
