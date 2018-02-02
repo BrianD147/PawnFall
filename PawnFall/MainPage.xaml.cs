@@ -6,12 +6,14 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
@@ -108,7 +110,7 @@ namespace PawnFall
             chessboardMap[6, 3] = 3;
 
             //set black pawn (for testing)
-            chessboardMap[0, 2] = -1;
+            chessboardMap[6, 2] = -1;
 
             //load pieces into correct positions
             for (int i=0; i<7; i++)
@@ -209,7 +211,15 @@ namespace PawnFall
                 {
                     if (chessboardMap[i, j] == -1)
                     {
-                        MovePiece(chessboardMap[i+1, j], i, j, i+1, j);
+                        if (i != 6)
+                        {
+                            MovePiece(chessboardMap[i + 1, j], i, j, i + 1, j);
+                        }
+                        else
+                        {
+                            GameOver();
+                        }
+                        
                     }
                 }
             }
@@ -218,7 +228,63 @@ namespace PawnFall
             chessboardMap[0, pos] = -1;
             LoadPieces(chessboardMap[0, pos], 0, pos);
         }
-        
+
+        private void GameOver()
+        {
+            TextBlock gameoverMsg = new TextBlock
+            {
+                Opacity = 0,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                FontSize = 40,
+                FontWeight = FontWeights.Bold,
+                MaxLines = 2,
+                Text = "Game Over!",
+                Foreground = new SolidColorBrush(Colors.Black),
+                TextAlignment = TextAlignment.Center,
+                Margin = new Thickness(0, -100, 0, 0)
+            };
+
+
+            Button tryAgainBtn = new Button
+            {
+                Height = 50,
+                Width = 150,
+                Opacity = 0,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                FontSize = 20,
+                Content = "Play again!"
+            };
+            tryAgainBtn.Tapped += Button_Tapped;
+            tryAgainBtn.Background = new SolidColorBrush(Colors.DarkGray);
+            tryAgainBtn.Margin = new Thickness(0, 100, 0, 0);
+
+            gGameover.Children.Add(gameoverMsg);
+            gGameover.Children.Add(tryAgainBtn);
+
+            Storyboard stb = new Storyboard();
+            DoubleAnimation appear = new DoubleAnimation();
+            DoubleAnimation appear2 = new DoubleAnimation();
+
+            appear.To = 1.0;
+            appear.Duration = new Duration(TimeSpan.FromMilliseconds(1500));
+            Storyboard.SetTarget(appear, gameoverMsg);
+            Storyboard.SetTargetProperty(appear, "Opacity");
+
+            appear2.To = 1.0;
+            appear2.Duration = new Duration(TimeSpan.FromMilliseconds(1500));
+            Storyboard.SetTarget(appear2, tryAgainBtn);
+            Storyboard.SetTargetProperty(appear2, "Opacity");
+            
+            stb.Children.Add(appear);
+            stb.Children.Add(appear2);
+            stb.Begin();
+        }
+
+        private void Button_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
 
         private void MovePiece(int piece, int x, int y, int destX, int destY)
         {
