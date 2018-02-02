@@ -103,8 +103,8 @@ namespace PawnFall
             //chessboardMap[6, 1] = 2;
             //chessboardMap[6, 5] = 2;
 
-            chessboardMap[2, 1] = 2;
-            chessboardMap[5, 3] = 2;
+            chessboardMap[3, 4] = 2;
+            chessboardMap[3, 3] = 3;
 
             //set king
             //chessboardMap[6, 3] = 3;
@@ -324,6 +324,70 @@ namespace PawnFall
                     }
                     break;
                 case 3:
+                    //Check for NW position
+                    if (x > 0 && y > 0)
+                    {
+                        if (chessboardMap[x - 1, y - 1] <= 0)
+                        {
+                            HighlightTile(x - 1, y - 1);
+                        }
+                    }
+                    //Check for N position
+                    if (x > 0)
+                    {
+                        if (chessboardMap[x - 1, y] <= 0)
+                        {
+                            HighlightTile(x - 1, y);
+                        }
+                    }
+                    //Check for NE position
+                    if (x > 0 && y < 6)
+                    {
+                        if (chessboardMap[x - 1, y + 1] <= 0)
+                        {
+                            HighlightTile(x - 1, y + 1);
+                        }
+                    }
+                    //Check for E position
+                    if (y < 6)
+                    {
+                        if (chessboardMap[x, y + 1] <= 0)
+                        {
+                            HighlightTile(x, y + 1);
+                        }
+                    }
+                    //Check for SE position
+                    if (x < 6 && y < 6)
+                    {
+                        if (chessboardMap[x + 1, y + 1] <= 0)
+                        {
+                            HighlightTile(x + 1, y + 1);
+                        }
+                    }
+                    //Check for S position
+                    if (x < 6)
+                    {
+                        if (chessboardMap[x + 1, y] <= 0)
+                        {
+                            HighlightTile(x + 1, y);
+                        }
+                    }
+                    //Check for SW position
+                    if (x < 6 && y > 0)
+                    {
+                        if (chessboardMap[x + 1, y - 1] <= 0)
+                        {
+                            HighlightTile(x + 1, y - 1);
+                        }
+                    }
+                    //Check for W position
+                    if (y > 0)
+                    {
+                        if (chessboardMap[x, y - 1] <= 0)
+                        {
+                            HighlightTile(x, y - 1);
+                        }
+                    }
                     break;
             }
             HighlightTile(x, y);
