@@ -23,7 +23,8 @@ using Windows.UI.Xaml.Shapes;
 namespace PawnFall
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Author: Brian Doyle = G00330969
+    /// PawnFall - Alternate game of chess where the challenge is to keep the pawns from reaching the bottom of the board
     /// </summary>
     public sealed partial class MainPage : Page
     {
@@ -34,6 +35,8 @@ namespace PawnFall
         bool isPathHighlighted = false; //bool to tell if a square is highlighted or not
         int[] pieceCoordinate = new int[2]; //holds tapped piece coordinated if player wants to move it to another square
         int[,] blackPawns = new int[7, 7]; // integer array of black pawn positions
+        int score = 0;
+        int highScore = 0;
 
         public MainPage()
         {
@@ -107,10 +110,13 @@ namespace PawnFall
             chessboardMap[6, 5] = 2;
 
             //set king
-            chessboardMap[6, 3] = 3;
+            //chessboardMap[6, 3] = 3;
+
+            //set queen
+            chessboardMap[6, 3] = 4;
 
             //set black pawn (for testing)
-            chessboardMap[6, 2] = -1;
+            //chessboardMap[6, 2] = -1;
 
             //load pieces into correct positions
             for (int i=0; i<7; i++)
@@ -119,9 +125,7 @@ namespace PawnFall
                 {
                     LoadPieces(chessboardMap[i, j], i, j);
                 }
-
             }
-
         }
 
         private void LoadPieces(int piece, int x, int y)//loads a chess piece into correct position
@@ -153,6 +157,11 @@ namespace PawnFall
                     break;
                 case 3:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/kingWhite.png", UriKind.RelativeOrAbsolute));
+                    temp.Fill = img;
+                    //temp.Stroke = new SolidColorBrush(Colors.Gray);
+                    break;
+                case 4:
+                    img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/queenWhite.png", UriKind.RelativeOrAbsolute));
                     temp.Fill = img;
                     //temp.Stroke = new SolidColorBrush(Colors.Gray);
                     break;
@@ -191,6 +200,7 @@ namespace PawnFall
                 if (chessSquares[row, column].StrokeThickness == 3)
                 {
                     ClearHighlights();
+                    CheckIfPiece(row, column);
                     MovePiece(chessboardMap[row, column], pieceCoordinate[0], pieceCoordinate[1], row, column);
                     isPathHighlighted = false;
                     OpponentsTurn();
@@ -202,7 +212,16 @@ namespace PawnFall
                 }
             }
         }
-        
+
+        private void CheckIfPiece(int x, int y)
+        {
+            if (chessboardMap[x, y] == -1)
+            {
+                score++;
+                tblScore.Text = "" + score;
+            }
+        }
+
         private void OpponentsTurn()
         {
             for (int i = 6; i >= 0; i--)
@@ -245,7 +264,6 @@ namespace PawnFall
                 Margin = new Thickness(0, -100, 0, 0)
             };
 
-
             Button tryAgainBtn = new Button
             {
                 Height = 50,
@@ -279,6 +297,12 @@ namespace PawnFall
             stb.Children.Add(appear);
             stb.Children.Add(appear2);
             stb.Begin();
+
+            if (score > highScore)
+            {
+                highScore = score;
+                tblHighScore.Text = "" + highScore;
+            }
         }
 
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)
@@ -433,7 +457,7 @@ namespace PawnFall
                         }
                     }
                     break;
-                case 3:
+                case 3: //white king
                     HighlightSelectedTile(x, y);
 
                     //Check for NW position
@@ -500,6 +524,173 @@ namespace PawnFall
                             HighlightTile(x, y - 1);
                         }
                     }
+                    break;
+                case 4:
+                    //Horizontal movement
+                    for (int i = x + 1; i < 7; i++)
+                    {
+                        if (chessboardMap[i, y] == 0)
+                        {
+                            HighlightTile(i, y);
+                        }
+                        else if (chessboardMap[i, y] < 0)
+                        {
+                            HighlightTile(i, y);
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    for (int i = x - 1; i >= 0; i--)
+                    {
+                        if (chessboardMap[i, y] == 0)
+                        {
+                            HighlightTile(i, y);
+                        }
+                        else if (chessboardMap[i, y] < 0)
+                        {
+                            HighlightTile(i, y);
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    for (int i = y + 1; i < 7; i++)
+                    {
+                        if (chessboardMap[x, i] == 0)
+                        {
+                            HighlightTile(x, i);
+                        }
+                        else if (chessboardMap[x, i] < 0)
+                        {
+                            HighlightTile(x, i);
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    for (int i = y - 1; i >= 0; i--)
+                    {
+                        if (chessboardMap[x, i] == 0)
+                        {
+                            HighlightTile(x, i);
+                        }
+                        else if (chessboardMap[x, i] < 0)
+                        {
+                            HighlightTile(x, i);
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    //Diagonal movement
+                    for (int i = 1; i < 7; i++)
+                    {
+                        if (x + i < 7 && y + i < 7)
+                        {
+                            if (chessboardMap[x + i, y + i] == 0)
+                            {
+                                HighlightTile(x + i, y + i);
+                            }
+                            else if (chessboardMap[x + i, y + i] < 0)
+                            {
+                                HighlightTile(x + i, y + i);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    for (int i = 1; i < 7; i++)
+                    {
+                        if (x + i < 7 && y - i >= 0)
+                        {
+                            if (chessboardMap[x + i, y - i] == 0)
+                            {
+                                HighlightTile(x + i, y - i);
+                            }
+                            else if (chessboardMap[x + i, y - i] < 0)
+                            {
+                                HighlightTile(x + i, y - i);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                                
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    for (int i = 1; i < 7; i++)
+                    {
+                        if (x - i >= 0 && y + i < 7)
+                        {
+                            if (chessboardMap[x - i, y + i] == 0)
+                            {
+                                HighlightTile(x - i, y + i);
+                            }
+                            else if (chessboardMap[x - i, y + i] < 0)
+                            {
+                                HighlightTile(x - i, y + i);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    for (int i = 1; i < 7; i++)
+                    {
+                        if (x - i >= 0 && y - i >= 0)
+                        {
+                            if (chessboardMap[x - i, y - i] == 0)
+                            {
+                                HighlightTile(x - i, y - i);
+                            }
+                            else if (chessboardMap[x - i, y - i] < 0)
+                            {
+                                HighlightTile(x - i, y - i);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
                     break;
             }
         }
