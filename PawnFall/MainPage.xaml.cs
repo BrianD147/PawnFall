@@ -108,13 +108,13 @@ namespace PawnFall
 
             //set knights
             chessboardMap[7, 1] = 2;
-            chessboardMap[7, 5] = 2;
+            chessboardMap[7, 6] = 2;
 
             //set king
-            //chessboardMap[6, 3] = 3;
+            chessboardMap[7, 3] = 3;
 
             //set queen
-            chessboardMap[7, 3] = 4;
+            chessboardMap[7, 4] = 4;
 
             //set black pawn (for testing)
             //chessboardMap[6, 2] = -1;
