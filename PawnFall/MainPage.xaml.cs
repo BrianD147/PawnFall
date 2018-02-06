@@ -28,13 +28,13 @@ namespace PawnFall
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        int[,] chessboardMap = new int[7, 7]; //an integer array of chesspieces
-        Rectangle[,] chessSquares = new Rectangle[7, 7]; //a 2 dimensional array of all chessboard squares
-        Rectangle[,] backgroundBoard = new Rectangle[7, 7]; //a 2 dimentional array of the chessboard background itself
+        int[,] chessboardMap = new int[8, 8]; //an integer array of chesspieces
+        Rectangle[,] chessSquares = new Rectangle[8, 8]; //a 2 dimensional array of all chessboard squares
+        Rectangle[,] backgroundBoard = new Rectangle[8, 8]; //a 2 dimentional array of the chessboard background itself
         int color = 0; //counter to determine wether square should be white or green
         bool isPathHighlighted = false; //bool to tell if a square is highlighted or not
         int[] pieceCoordinate = new int[2]; //holds tapped piece coordinated if player wants to move it to another square
-        int[,] blackPawns = new int[7, 7]; // integer array of black pawn positions
+        int[,] blackPawns = new int[8, 8]; // integer array of black pawn positions
         int score = 0;
         int highScore = 0;
 
@@ -48,14 +48,14 @@ namespace PawnFall
         private void BoardSetup() //Sets up the chessboard background grid
         {
             //load pieces into correct positions
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 8; i++)
             {
-                for (int j = 0; j < 7; j++)
+                for (int j = 0; j < 8; j++)
                 {
                     LoadSquares(i, j, color);
                     color++;
                 }
-
+                color++;
             }
         }
 
@@ -63,8 +63,8 @@ namespace PawnFall
         {
             Rectangle temp = new Rectangle
             {
-                Height = 40,
-                Width = 40
+                Height = 35,
+                Width = 35
             };
 
             if (color%2 == 0)
@@ -89,39 +89,40 @@ namespace PawnFall
             //1: pawn
             //2: knight
             //3: king
+            //4: queen
 
             //set all to blank spaces first
-            for (int i=0; i<7; i++)
+            for (int i=0; i<8; i++)
             {
-                for(int j=0; j<7; j++)
+                for(int j=0; j<8; j++)
                 {
                     chessboardMap[i, j] = 0;
                 }
             }
 
             //set pawns
-            for (int i=0; i<7; i++)
+            for (int i=0; i<8; i++)
             {
-                chessboardMap[5, i] = 1;
+                chessboardMap[6, i] = 1;
             }
 
             //set knights
-            chessboardMap[6, 1] = 2;
-            chessboardMap[6, 5] = 2;
+            chessboardMap[7, 1] = 2;
+            chessboardMap[7, 5] = 2;
 
             //set king
             //chessboardMap[6, 3] = 3;
 
             //set queen
-            chessboardMap[6, 3] = 4;
+            chessboardMap[7, 3] = 4;
 
             //set black pawn (for testing)
             //chessboardMap[6, 2] = -1;
 
             //load pieces into correct positions
-            for (int i=0; i<7; i++)
+            for (int i=0; i<8; i++)
             {
-                for(int j=0; j<7; j++)
+                for(int j=0; j<8; j++)
                 {
                     LoadPieces(chessboardMap[i, j], i, j);
                 }
@@ -132,8 +133,8 @@ namespace PawnFall
         {
             Rectangle temp = new Rectangle //declares a temp rectangle which will be given a piece and put onto the chessboard position
             {
-                Height = 40,
-                Width = 40,
+                Height = 35,
+                Width = 35,
             };
             temp.Tapped += SquareTapped;
 
@@ -224,13 +225,13 @@ namespace PawnFall
 
         private void OpponentsTurn()
         {
-            for (int i = 6; i >= 0; i--)
+            for (int i = 7; i >= 0; i--)
             {
-                for (int j = 6; j >= 0; j--)
+                for (int j = 7; j >= 0; j--)
                 {
                     if (chessboardMap[i, j] == -1)
                     {
-                        if (i != 6)
+                        if (i != 7)
                         {
                             MovePiece(chessboardMap[i + 1, j], i, j, i + 1, j);
                         }
@@ -243,7 +244,7 @@ namespace PawnFall
                 }
             }
             Random rnd = new Random();
-            int pos = rnd.Next(6);
+            int pos = rnd.Next(7);
             chessboardMap[0, pos] = -1;
             LoadPieces(chessboardMap[0, pos], 0, pos);
         }
@@ -322,9 +323,9 @@ namespace PawnFall
         private void ClearHighlights()
         {
             //clear the current highlights on board
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 8; i++)
             {
-                for (int j = 0; j < 7; j++)
+                for (int j = 0; j < 8; j++)
                 {
                     chessSquares[i, j].StrokeThickness = 0;
                 }
@@ -343,7 +344,7 @@ namespace PawnFall
                     {
                         HighlightTile(x - 1, y);
                         // If pawn is at starting position offer a 2 stepped move
-                        if (x == 5 && chessboardMap[x - 2, y] == 0)
+                        if (x == 6 && chessboardMap[x - 2, y] == 0)
                         {
                             HighlightTile(x - 2, y);
                         }
@@ -351,7 +352,7 @@ namespace PawnFall
 
                     //Taking pieces
                     //If pawn isnt against an edge check both diagonals
-                    if (y > 0 && y < 6)
+                    if (y > 0 && y < 7)
                     {
                         //Check right diagonal
                         if (chessboardMap[x - 1, y + 1] < 0)
@@ -377,7 +378,7 @@ namespace PawnFall
                     }
 
                     //If pawn is against right edge only check left diagonal
-                    if (y == 6)
+                    if (y == 7)
                     {
                         //Check left diagonal
                         if (chessboardMap[x - 1, y - 1] < 0)
@@ -393,7 +394,7 @@ namespace PawnFall
                     HighlightSelectedTile(x, y);
 
                     //Check for 1 oclock position
-                    if (x > 1 && y < 6)
+                    if (x > 1 && y < 7)
                     {
                         if (chessboardMap[x - 2, y + 1] <= 0)
                         {
@@ -401,7 +402,7 @@ namespace PawnFall
                         }
                     }
                     //Check for 2 oclock position
-                    if (x > 0 && y < 5)
+                    if (x > 0 && y < 6)
                     {
                         if (chessboardMap[x - 1, y + 2] <= 0)
                         {
@@ -409,7 +410,7 @@ namespace PawnFall
                         }
                     }
                     //Check for 4 oclock position
-                    if (x < 6 && y < 5)
+                    if (x < 7 && y < 6)
                     {
                         if (chessboardMap[x + 1, y + 2] <= 0)
                         {
@@ -417,7 +418,7 @@ namespace PawnFall
                         }
                     }
                     //Check for 5 oclock position
-                    if (x < 5 && y < 6)
+                    if (x < 6 && y < 7)
                     {
                         if (chessboardMap[x + 2, y + 1] <= 0)
                         {
@@ -425,7 +426,7 @@ namespace PawnFall
                         }
                     }
                     //Check for 7 oclock position
-                    if (x < 5 && y > 0)
+                    if (x < 6 && y > 0)
                     {
                         if (chessboardMap[x + 2, y - 1] <= 0)
                         {
@@ -433,7 +434,7 @@ namespace PawnFall
                         }
                     }
                     //Check for 8 oclock position
-                    if (x < 6 && y > 1)
+                    if (x < 7 && y > 1)
                     {
                         if (chessboardMap[x + 1, y - 2] <= 0)
                         {
@@ -477,7 +478,7 @@ namespace PawnFall
                         }
                     }
                     //Check for NE position
-                    if (x > 0 && y < 6)
+                    if (x > 0 && y < 7)
                     {
                         if (chessboardMap[x - 1, y + 1] <= 0)
                         {
@@ -485,7 +486,7 @@ namespace PawnFall
                         }
                     }
                     //Check for E position
-                    if (y < 6)
+                    if (y < 7)
                     {
                         if (chessboardMap[x, y + 1] <= 0)
                         {
@@ -493,7 +494,7 @@ namespace PawnFall
                         }
                     }
                     //Check for SE position
-                    if (x < 6 && y < 6)
+                    if (x < 7 && y < 7)
                     {
                         if (chessboardMap[x + 1, y + 1] <= 0)
                         {
@@ -501,7 +502,7 @@ namespace PawnFall
                         }
                     }
                     //Check for S position
-                    if (x < 6)
+                    if (x < 7)
                     {
                         if (chessboardMap[x + 1, y] <= 0)
                         {
@@ -509,7 +510,7 @@ namespace PawnFall
                         }
                     }
                     //Check for SW position
-                    if (x < 6 && y > 0)
+                    if (x < 7 && y > 0)
                     {
                         if (chessboardMap[x + 1, y - 1] <= 0)
                         {
@@ -527,7 +528,7 @@ namespace PawnFall
                     break;
                 case 4:
                     //Horizontal movement
-                    for (int i = x + 1; i < 7; i++)
+                    for (int i = x + 1; i < 8; i++)
                     {
                         if (chessboardMap[i, y] == 0)
                         {
@@ -559,7 +560,7 @@ namespace PawnFall
                             break;
                         }
                     }
-                    for (int i = y + 1; i < 7; i++)
+                    for (int i = y + 1; i < 8; i++)
                     {
                         if (chessboardMap[x, i] == 0)
                         {
@@ -593,9 +594,9 @@ namespace PawnFall
                     }
 
                     //Diagonal movement
-                    for (int i = 1; i < 7; i++)
+                    for (int i = 1; i < 8; i++)
                     {
-                        if (x + i < 7 && y + i < 7)
+                        if (x + i < 8 && y + i < 8)
                         {
                             if (chessboardMap[x + i, y + i] == 0)
                             {
@@ -618,9 +619,9 @@ namespace PawnFall
                         }
                     }
 
-                    for (int i = 1; i < 7; i++)
+                    for (int i = 1; i < 8; i++)
                     {
-                        if (x + i < 7 && y - i >= 0)
+                        if (x + i < 8 && y - i >= 0)
                         {
                             if (chessboardMap[x + i, y - i] == 0)
                             {
@@ -643,9 +644,9 @@ namespace PawnFall
                         }
                     }
 
-                    for (int i = 1; i < 7; i++)
+                    for (int i = 1; i < 8; i++)
                     {
-                        if (x - i >= 0 && y + i < 7)
+                        if (x - i >= 0 && y + i < 8)
                         {
                             if (chessboardMap[x - i, y + i] == 0)
                             {
@@ -667,7 +668,7 @@ namespace PawnFall
                         }
                     }
 
-                    for (int i = 1; i < 7; i++)
+                    for (int i = 1; i < 8; i++)
                     {
                         if (x - i >= 0 && y - i >= 0)
                         {

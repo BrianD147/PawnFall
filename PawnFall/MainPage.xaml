@@ -23,8 +23,10 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
@@ -51,8 +53,10 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
@@ -63,15 +67,22 @@
                 </Grid.ColumnDefinitions>
             </Grid>
         </Viewbox>
+        <Viewbox x:Name="vbGameover" Stretch="Uniform" HorizontalAlignment="Center" Margin="120,60,20,20">
+            <Grid x:Name="gGameover" Height="280" Width="280">
+
+            </Grid>
+        </Viewbox>
+
+
         <!-- Top bar -->
         <Rectangle x:Name="rectTopBar" VerticalAlignment="Top" Height="40" Margin="0, 0, 0, 0" Fill="DarkSlateGray" />
         <TextBlock x:Name="tblGameTitle" Foreground="White" HorizontalAlignment="Center" Text="P A W N F A L L" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30"/>
         <!-- Sidebar -->
         <Rectangle x:Name="rectSideBar" Width="100" HorizontalAlignment="Left" Margin="0, 40, 0, 0" Fill="DarkGray" />
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="SCORE" TextAlignment="Center" Foreground="White" FontSize="20" Margin="20, 80, 0, 0"/>
-        <TextBlock x:Name="tblScore" HorizontalAlignment="Left" Text="0" TextAlignment="Center" VerticalAlignment="Top" Margin="45,110,0,0"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="HIGHSCORE" TextAlignment="Center" Foreground="White" FontSize="12" Margin="20, 180, 0, 0"/>
-        <TextBlock x:Name="tblHighScore" HorizontalAlignment="Left" Text="0" TextAlignment="Center" VerticalAlignment="Top" Margin="45,200,0,0"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="SCORE" TextAlignment="Center" Foreground="White" FontSize="20" Margin="20, 0, 0, 100"/>
+        <TextBlock x:Name="tblScore" HorizontalAlignment="Left" Text="0" TextAlignment="Center" VerticalAlignment="Center" Margin="45,0,0,40"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="HIGHSCORE" TextAlignment="Center" Foreground="White" FontSize="12" Margin="20, 50, 0, 0"/>
+        <TextBlock x:Name="tblHighScore" HorizontalAlignment="Left" Text="0" TextAlignment="Center" VerticalAlignment="Center" Margin="45,100,0,0"/>
         <!-- Menu button (Opacity set to 0 to be invisiable yet clickable) -->
         <Rectangle Height="4" Width="20" Margin="10, 10, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="White"/>
         <Rectangle Height="4" Width="20" Margin="10, 18, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="White"/>
