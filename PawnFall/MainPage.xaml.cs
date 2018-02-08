@@ -373,9 +373,6 @@ namespace PawnFall
                             }
                         }
                     
-
-                    
-
                         //Taking pieces
                         //If pawn isnt against an edge check both diagonals
                         if (y > 0 && y < 7)
