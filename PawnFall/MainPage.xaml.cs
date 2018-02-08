@@ -90,6 +90,8 @@ namespace PawnFall
             //2: knight
             //3: king
             //4: queen
+            //5: rook
+            //6: bishop
 
             //set all to blank spaces first
             for (int i=0; i<8; i++)
@@ -119,6 +121,10 @@ namespace PawnFall
             //set rooks
             chessboardMap[7, 0] = 5;
             chessboardMap[7, 7] = 5;
+
+            //set bishops
+            chessboardMap[7, 2] = 6;
+            chessboardMap[7, 5] = 6;
 
             //set black pawn (for testing)
             //chessboardMap[6, 2] = -1;
@@ -172,6 +178,11 @@ namespace PawnFall
                     break;
                 case 5:
                     img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/rookWhite.png", UriKind.RelativeOrAbsolute));
+                    temp.Fill = img;
+                    //temp.Stroke = new SolidColorBrush(Colors.Gray);
+                    break;
+                case 6:
+                    img.ImageSource = new BitmapImage(new Uri("ms-appx:///Image/bishopWhite.png", UriKind.RelativeOrAbsolute));
                     temp.Fill = img;
                     //temp.Stroke = new SolidColorBrush(Colors.Gray);
                     break;
@@ -348,54 +359,60 @@ namespace PawnFall
                 case 1: // White pawn
                     HighlightSelectedTile(x, y);
 
-                    // If pawn has space infront of it
-                    if (chessboardMap[x - 1, y] == 0)
+                    //of pawn isnt at the top of the screen
+                    if (x > 0)
                     {
-                        HighlightTile(x - 1, y);
-                        // If pawn is at starting position offer a 2 stepped move
-                        if (x == 6 && chessboardMap[x - 2, y] == 0)
+                        // If pawn has space infront of it
+                        if (chessboardMap[x - 1, y] == 0)
                         {
-                            HighlightTile(x - 2, y);
+                            HighlightTile(x - 1, y);
+                            // If pawn is at starting position offer a 2 stepped move
+                            if (x == 6 && chessboardMap[x - 2, y] == 0)
+                            {
+                                HighlightTile(x - 2, y);
+                            }
+                        }
+                    
+
+                    
+
+                        //Taking pieces
+                        //If pawn isnt against an edge check both diagonals
+                        if (y > 0 && y < 7)
+                        {
+                            //Check right diagonal
+                            if (chessboardMap[x - 1, y + 1] < 0)
+                            {
+                                HighlightTile(x - 1, y + 1);
+                            }
+
+                            //Check left diagonal
+                            if (chessboardMap[x - 1, y - 1] < 0)
+                            {
+                                HighlightTile(x - 1, y - 1);
+                            }
+                        }
+
+                        //If pawn is against left edge only check right diagonal
+                        if (y == 0)
+                        {
+                            //Check right diagonal
+                            if (chessboardMap[x - 1, y + 1] < 0)
+                            {
+                                HighlightTile(x - 1, y + 1);
+                            }
+                        }
+
+                        //If pawn is against right edge only check left diagonal
+                        if (y == 7)
+                        {
+                            //Check left diagonal
+                            if (chessboardMap[x - 1, y - 1] < 0)
+                            {
+                                HighlightTile(x - 1, y - 1);
+                            }
                         }
                     }
-
-                    //Taking pieces
-                    //If pawn isnt against an edge check both diagonals
-                    if (y > 0 && y < 7)
-                    {
-                        //Check right diagonal
-                        if (chessboardMap[x - 1, y + 1] < 0)
-                        {
-                            HighlightTile(x - 1, y + 1);
-                        }
-
-                        //Check left diagonal
-                        if (chessboardMap[x - 1, y - 1] < 0)
-                        {
-                            HighlightTile(x - 1, y - 1);
-                        }
-                    }
-
-                    //If pawn is against left edge only check right diagonal
-                    if (y == 0)
-                    {
-                        //Check right diagonal
-                        if (chessboardMap[x - 1, y + 1] < 0)
-                        {
-                            HighlightTile(x - 1, y + 1);
-                        }
-                    }
-
-                    //If pawn is against right edge only check left diagonal
-                    if (y == 7)
-                    {
-                        //Check left diagonal
-                        if (chessboardMap[x - 1, y - 1] < 0)
-                        {
-                            HighlightTile(x - 1, y - 1);
-                        }
-                    }
-
 
 
                     break;
@@ -768,7 +785,106 @@ namespace PawnFall
                             break;
                         }
                     }
+                    break;
+                case 6:
+                    //Diagonal movement
+                    for (int i = 1; i < 8; i++)
+                    {
+                        if (x + i < 8 && y + i < 8)
+                        {
+                            if (chessboardMap[x + i, y + i] == 0)
+                            {
+                                HighlightTile(x + i, y + i);
+                            }
+                            else if (chessboardMap[x + i, y + i] < 0)
+                            {
+                                HighlightTile(x + i, y + i);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
 
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    for (int i = 1; i < 8; i++)
+                    {
+                        if (x + i < 8 && y - i >= 0)
+                        {
+                            if (chessboardMap[x + i, y - i] == 0)
+                            {
+                                HighlightTile(x + i, y - i);
+                            }
+                            else if (chessboardMap[x + i, y - i] < 0)
+                            {
+                                HighlightTile(x + i, y - i);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    for (int i = 1; i < 8; i++)
+                    {
+                        if (x - i >= 0 && y + i < 8)
+                        {
+                            if (chessboardMap[x - i, y + i] == 0)
+                            {
+                                HighlightTile(x - i, y + i);
+                            }
+                            else if (chessboardMap[x - i, y + i] < 0)
+                            {
+                                HighlightTile(x - i, y + i);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    for (int i = 1; i < 8; i++)
+                    {
+                        if (x - i >= 0 && y - i >= 0)
+                        {
+                            if (chessboardMap[x - i, y - i] == 0)
+                            {
+                                HighlightTile(x - i, y - i);
+                            }
+                            else if (chessboardMap[x - i, y - i] < 0)
+                            {
+                                HighlightTile(x - i, y - i);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
                     break;
             }
         }
