@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -38,9 +39,22 @@ namespace PawnFall
         int score = 0;
         int highScore = 0;
 
+        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
         public MainPage()
         {
             this.InitializeComponent();
+            Windows.Storage.ApplicationDataCompositeValue composite = (Windows.Storage.ApplicationDataCompositeValue)localSettings.Values["highScore"];
+
+            if (composite == null)
+            {
+                // No data
+            }
+            else
+            {
+                highScore = (int)composite["intVal"];
+            }
+
             BoardSetup();
             PieceSetup();
         }
@@ -271,54 +285,8 @@ namespace PawnFall
 
         private void GameOver()
         {
-            TextBlock gameoverMsg = new TextBlock
-            {
-                Opacity = 0,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                FontSize = 40,
-                FontWeight = FontWeights.Bold,
-                MaxLines = 2,
-                Text = "Game Over!",
-                Foreground = new SolidColorBrush(Colors.Black),
-                TextAlignment = TextAlignment.Center,
-                Margin = new Thickness(0, -100, 0, 0)
-            };
-
-            Button tryAgainBtn = new Button
-            {
-                Height = 50,
-                Width = 150,
-                Opacity = 0,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                FontSize = 20,
-                Content = "Play again!"
-            };
-            tryAgainBtn.Tapped += Button_Tapped;
-            tryAgainBtn.Background = new SolidColorBrush(Colors.DarkGray);
-            tryAgainBtn.Margin = new Thickness(0, 100, 0, 0);
-
-            gGameover.Children.Add(gameoverMsg);
-            gGameover.Children.Add(tryAgainBtn);
-
-            Storyboard stb = new Storyboard();
-            DoubleAnimation appear = new DoubleAnimation();
-            DoubleAnimation appear2 = new DoubleAnimation();
-
-            appear.To = 1.0;
-            appear.Duration = new Duration(TimeSpan.FromMilliseconds(1500));
-            Storyboard.SetTarget(appear, gameoverMsg);
-            Storyboard.SetTargetProperty(appear, "Opacity");
-
-            appear2.To = 1.0;
-            appear2.Duration = new Duration(TimeSpan.FromMilliseconds(1500));
-            Storyboard.SetTarget(appear2, tryAgainBtn);
-            Storyboard.SetTargetProperty(appear2, "Opacity");
-            
-            stb.Children.Add(appear);
-            stb.Children.Add(appear2);
-            stb.Begin();
-
+            rectGameOver.Visibility = Visibility.Visible;
+            tblGameOver.Visibility = Visibility.Visible;
             if (score > highScore)
             {
                 highScore = score;
@@ -328,7 +296,7 @@ namespace PawnFall
 
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            PieceSetup();
         }
 
         private void MovePiece(int piece, int x, int y, int destX, int destY)
@@ -913,8 +881,70 @@ namespace PawnFall
 
         private void BtnMenu_Click(object sender, RoutedEventArgs e) //Menu button click
         {
-            //tblGameTitle.Text = "Test";
+            if (tblScoreHeading.Visibility == Visibility.Visible)
+            {
+                tblHighScoreHeading.Visibility = Visibility.Collapsed;
+                tblHighScore.Visibility = Visibility.Collapsed;
+                tblScore.Visibility = Visibility.Collapsed;
+                tblScoreHeading.Visibility = Visibility.Collapsed;
+                btnNewGame.Visibility = Visibility.Visible;
+                btnExit.Visibility = Visibility.Visible;
+                btnHelp.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                tblHighScoreHeading.Visibility = Visibility.Visible;
+                tblHighScore.Visibility = Visibility.Visible;
+                tblScore.Visibility = Visibility.Visible;
+                tblScoreHeading.Visibility = Visibility.Visible;
+                btnNewGame.Visibility = Visibility.Collapsed;
+                btnExit.Visibility = Visibility.Collapsed;
+                btnHelp.Visibility = Visibility.Collapsed;
+            }
+            
         }
 
+        private void BtnNewGame_Click(object sender, RoutedEventArgs e)
+        {
+            rectGameOver.Visibility = Visibility.Collapsed;
+            tblGameOver.Visibility = Visibility.Collapsed;
+            tblHelp.Visibility = Visibility.Collapsed;
+            BoardSetup();
+            PieceSetup();
+            score = 0;
+            tblScore.Text = "" + score;
+
+            tblHighScoreHeading.Visibility = Visibility.Visible;
+            tblHighScore.Visibility = Visibility.Visible;
+            tblScore.Visibility = Visibility.Visible;
+            tblScoreHeading.Visibility = Visibility.Visible;
+            btnNewGame.Visibility = Visibility.Collapsed;
+            btnExit.Visibility = Visibility.Collapsed;
+            btnHelp.Visibility = Visibility.Collapsed;
+        }
+
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.Storage.ApplicationDataCompositeValue composite = new Windows.Storage.ApplicationDataCompositeValue();
+            composite["intVal"] = highScore;
+
+            localSettings.Values["highScore"] = composite;
+
+            Application.Current.Exit();
+        }
+
+        private void BtnHelp_Click(object sender, RoutedEventArgs e)
+        {
+            if (tblHelp.Visibility == Visibility.Visible)
+            {
+                rectGameOver.Visibility = Visibility.Collapsed;
+                tblHelp.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                rectGameOver.Visibility = Visibility.Visible;
+                tblHelp.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

@@ -67,22 +67,25 @@
                 </Grid.ColumnDefinitions>
             </Grid>
         </Viewbox>
-        <Viewbox x:Name="vbGameover" Stretch="Uniform" HorizontalAlignment="Center" Margin="120,60,20,20">
-            <Grid x:Name="gGameover" Height="280" Width="280">
 
-            </Grid>
-        </Viewbox>
-
+        <Rectangle x:Name="rectGameOver" Fill="Black" Opacity="0.75" Visibility="Collapsed" Margin="100, 40, 0, 0"/>
+        <TextBlock x:Name="tblGameOver" Text="GAME OVER" FontSize="32" Foreground="White" TextAlignment="Center" Opacity="30" Visibility="Collapsed" Margin="100, 200, 0, 0"/>
+        <TextBlock x:Name="tblHelp" Text="INSTRUCTIONS &#x0a; &#x0a; Tap on a piece and all valid squares will highlight to show you were you can move &#x0a; Every time you move, the black pawns will fall down a row from the top &#x0a; The black pawns will take any piece that is there way, so watch out &#x0a; A point is earned for every black pawn you take &#x0a; If a black pawn manages to go off the bottom of the board then it is GAME OVER! &#x0a;&#x0a; Press the HELP button again to close" FontSize="16" Foreground="White" TextAlignment="Center" TextWrapping="Wrap" Opacity="30" Visibility="Collapsed" Margin="100, 100, 0, 0"/>
 
         <!-- Top bar -->
         <Rectangle x:Name="rectTopBar" VerticalAlignment="Top" Height="40" Margin="0, 0, 0, 0" Fill="DarkSlateGray" />
         <TextBlock x:Name="tblGameTitle" Foreground="White" HorizontalAlignment="Center" Text="P A W N F A L L" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30"/>
         <!-- Sidebar -->
         <Rectangle x:Name="rectSideBar" Width="100" HorizontalAlignment="Left" Margin="0, 40, 0, 0" Fill="DarkGray" />
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="SCORE" TextAlignment="Center" Foreground="White" FontSize="20" Margin="20, 0, 0, 100"/>
+        <TextBlock x:Name="tblScoreHeading" HorizontalAlignment="Left" VerticalAlignment="Center" Text="SCORE" TextAlignment="Center" Foreground="White" FontSize="20" Margin="20, 0, 0, 100"/>
         <TextBlock x:Name="tblScore" HorizontalAlignment="Left" Text="0" TextAlignment="Center" VerticalAlignment="Center" Margin="45,0,0,40"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="HIGHSCORE" TextAlignment="Center" Foreground="White" FontSize="12" Margin="20, 50, 0, 0"/>
+        <TextBlock x:Name="tblHighScoreHeading" HorizontalAlignment="Left" VerticalAlignment="Center" Text="HIGHSCORE" TextAlignment="Center" Foreground="White" FontSize="12" Margin="20, 50, 0, 0"/>
         <TextBlock x:Name="tblHighScore" HorizontalAlignment="Left" Text="0" TextAlignment="Center" VerticalAlignment="Center" Margin="45,100,0,0"/>
+
+        <Button x:Name="btnNewGame" Content="NEW GAME" FontSize="11" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="80" Margin="10, 120, 0, 0" Click="BtnNewGame_Click" Visibility="Collapsed"/>
+        <Button x:Name="btnHelp" Content="HELP" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="80" Margin="10, 180, 0, 0" Click="BtnHelp_Click"  Visibility="Collapsed"/>
+        <Button x:Name="btnExit" Content="EXIT" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="80" Margin="10, 240, 0, 0" Click="BtnExit_Click"  Visibility="Collapsed"/>
+        
         <!-- Menu button (Opacity set to 0 to be invisiable yet clickable) -->
         <Rectangle Height="4" Width="20" Margin="10, 10, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="White"/>
         <Rectangle Height="4" Width="20" Margin="10, 18, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="White"/>
