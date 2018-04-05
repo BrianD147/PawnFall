@@ -8,8 +8,8 @@
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
-    <PackageIdentityName>844dfdda-d845-4e01-aca6-451c55c50ce4</PackageIdentityName>
-    <PackageIdentityPublisher>CN=Brian</PackageIdentityPublisher>
+    <PackageIdentityName>eaa3647e-a9f4-46c6-a3bd-df806a8770c9</PackageIdentityName>
+    <PackageIdentityPublisher>CN=868ECB2F-D6CC-4520-90E1-3FDAA503F2F4</PackageIdentityPublisher>
     <IntermediateOutputPath>C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
@@ -19,25 +19,25 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>0E2AA2E6FCEBB15F29675352E4F7821605B0922B876116FA6D55A5E610D79C3F</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>844dfdda-d845-4e01-aca6-451c55c50ce4_1.0.0.0_x86__gevy8cezwa384</RegisteredPackageMoniker>
-    <RegisteredUserModeAppID>844dfdda-d845-4e01-aca6-451c55c50ce4_gevy8cezwa384!App</RegisteredUserModeAppID>
-    <RegisteredPackageID>844dfdda-d845-4e01-aca6-451c55c50ce4</RegisteredPackageID>
-    <RegisteredPackagePublisher>CN=Brian</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <RegisteredManifestChecksum>6A121816184DB45CD5DCA554CEAB3AF0989AFDF1C5B41FB2C7D27675DAF73745</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>21944BrianDoyle.PawnFall_1.1.0.0_x86__abhx83pcx7aye</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>21944BrianDoyle.PawnFall_abhx83pcx7aye!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>21944BrianDoyle.PawnFall</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=868ECB2F-D6CC-4520-90E1-3FDAA503F2F4</RegisteredPackagePublisher>
+    <RegisteredVersion>1.1.0.0</RegisteredVersion>
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-17T23:02:30.851</Modified>
+      <Modified>2018-04-05T16:59:58.359</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Debug\PawnFall.exe">
       <PackagePath>entrypoint\PawnFall.exe</PackagePath>
-      <Modified>2018-01-17T23:02:28.895</Modified>
+      <Modified>2018-04-05T16:59:52.604</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Brian\.nuget\packages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -495,9 +495,233 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-11T22:15:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2018-01-17T10:12:55.542</Modified>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\LargeTile.scale-100.png">
+      <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.707</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\LargeTile.scale-125.png">
+      <PackagePath>Assets\LargeTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.785</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\LargeTile.scale-150.png">
+      <PackagePath>Assets\LargeTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.847</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\LargeTile.scale-200.png">
+      <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.957</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\LargeTile.scale-400.png">
+      <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.363</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\SmallTile.scale-100.png">
+      <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:21.738</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\SmallTile.scale-125.png">
+      <PackagePath>Assets\SmallTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:21.769</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\SmallTile.scale-150.png">
+      <PackagePath>Assets\SmallTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:21.801</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\SmallTile.scale-200.png">
+      <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:21.847</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\SmallTile.scale-400.png">
+      <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:21.894</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.754</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\SplashScreen.scale-125.png">
+      <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.847</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\SplashScreen.scale-150.png">
+      <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.957</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:24.894</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.035</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.097</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.160</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square150x150Logo.scale-400.png">
+      <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.332</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.597</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.707</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.629</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.660</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.scale-100.png">
+      <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.379</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.scale-125.png">
+      <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.394</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.scale-150.png">
+      <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.410</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.scale-400.png">
+      <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.457</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.472</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.488</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.582</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.504</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:23.535</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:24.910</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\StoreLogo.scale-125.png">
+      <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:24.926</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\StoreLogo.scale-150.png">
+      <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:24.957</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\StoreLogo.scale-200.png">
+      <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:24.972</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:25.004</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.363</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Wide310x150Logo.scale-125.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.394</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Wide310x150Logo.scale-150.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.426</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Wide310x150Logo.scale-400.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-04-05T14:59:22.676</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Image\bishopWhite.png">
+      <PackagePath>Image\bishopWhite.png</PackagePath>
+      <Modified>2018-02-08T11:00:38.442</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Image\kingWhite.png">
+      <PackagePath>Image\kingWhite.png</PackagePath>
+      <Modified>2018-01-29T13:15:35.143</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Image\knightWhite.png">
+      <PackagePath>Image\knightWhite.png</PackagePath>
+      <Modified>2018-01-29T13:15:35.193</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Image\pawnBlack.png">
+      <PackagePath>Image\pawnBlack.png</PackagePath>
+      <Modified>2018-01-29T13:15:35.227</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Image\pawnWhite.png">
+      <PackagePath>Image\pawnWhite.png</PackagePath>
+      <Modified>2018-01-29T13:33:58.827</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Image\queenWhite.png">
+      <PackagePath>Image\queenWhite.png</PackagePath>
+      <Modified>2018-02-05T14:38:24.205</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Image\rookWhite.png">
+      <PackagePath>Image\rookWhite.png</PackagePath>
+      <Modified>2018-02-06T23:46:06.114</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -506,36 +730,35 @@
     <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-16T11:19:49.153</Modified>
+      <Modified>2018-04-05T14:59:24.129</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-16T11:19:49.153</Modified>
+      <Modified>2018-04-05T14:59:22.238</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-16T11:19:49.153</Modified>
+      <Modified>2018-04-05T14:59:23.426</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-16T11:19:49.153</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\StoreLogo.png">
-      <PackagePath>Assets\StoreLogo.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-16T11:19:49.153</Modified>
+      <Modified>2018-04-05T14:59:23.613</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-16T11:19:49.153</Modified>
+      <Modified>2018-04-05T14:59:22.488</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2018-01-17T10:12:55.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Debug\PawnFall.xr.xml">
       <PackagePath>PawnFall.xr.xml</PackagePath>
-      <Modified>2018-01-17T23:00:21.566</Modified>
+      <Modified>2018-04-05T14:33:44.012</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -544,11 +767,11 @@
     <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-17T23:02:30.529</Modified>
+      <Modified>2018-04-05T16:59:56.565</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Debug\Core\PawnFall.exe">
       <PackagePath>PawnFall.exe</PackagePath>
-      <Modified>2018-01-17T23:02:30.843</Modified>
+      <Modified>2018-04-05T16:59:58.341</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

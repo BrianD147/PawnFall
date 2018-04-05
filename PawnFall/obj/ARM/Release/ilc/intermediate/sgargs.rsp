@@ -1,0 +1,11 @@
+/out:"C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\ARM\Release\ilc\intermediate\SgGenerated\\"
+/int:"C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\ARM\Release\ilc\intermediate\\"
+/ref:"C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\ARM\Release\ilc\intermediate\PreMergeILTransformed"
+/ref:"C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\ARM\Release\ilc\intermediate\TransformedSRWR"
+/ref:"C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\ARM\Release\ilc\in"
+/ref:"C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\ARM\Release\ilc\in\\"
+/ref:"C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\ARM\Release\ilc\in\\"
+/ref:"C:\Program Files (x86)\Microsoft SDKs\NuGetPackagesFallback\microsoft.net.native.compiler\1.7.3\tools\ARM\ilc\lib\Private\\"
+/ref:"C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\ARM\Release\ilc\in\WinMetadata"
+/ca:System.Private.CoreLib
+/cscpath:"C:\Program Files (x86)\Microsoft SDKs\NuGetPackagesFallback\microsoft.net.native.compiler\1.7.3\tools\ARM\ilc\csc"

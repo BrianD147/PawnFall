@@ -1,0 +1,2 @@
+MainPackage=C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Release\Upload\PawnFall_1.1.0.0_x86.appx
+SymbolPackage=C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Release\Upload\PawnFall_1.1.0.0\PawnFall_1.1.0.0_x86.appxsym

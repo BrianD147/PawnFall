@@ -7,11 +7,11 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="844dfdda-d845-4e01-aca6-451c55c50ce4" Publisher="CN=Brian" Version="1.0.0.0" ProcessorArchitecture="x86" />
-  <mp:PhoneIdentity PhoneProductId="844dfdda-d845-4e01-aca6-451c55c50ce4" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="21944BrianDoyle.PawnFall" Publisher="CN=868ECB2F-D6CC-4520-90E1-3FDAA503F2F4" Version="1.1.0.0" ProcessorArchitecture="x86" />
+  <mp:PhoneIdentity PhoneProductId="eaa3647e-a9f4-46c6-a3bd-df806a8770c9" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>PawnFall</DisplayName>
-    <PublisherDisplayName>Brian</PublisherDisplayName>
+    <PublisherDisplayName>Brian Doyle</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -25,14 +25,15 @@
   <Applications>
     <Application Id="App" Executable="PawnFall.exe" EntryPoint="PawnFall.App">
       <uap:VisualElements DisplayName="PawnFall" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="PawnFall" BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png"></uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape" />
+          <uap:Rotation Preference="landscapeFlipped" />
+        </uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>
-  <Capabilities>
-    <Capability Name="internetClient" />
-  </Capabilities>
   <build:Metadata>
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
     <build:Item Name="VisualStudio" Version="15.0" />

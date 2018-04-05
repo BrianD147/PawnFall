@@ -1,0 +1,6 @@
+MainPackage=C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\ARM\Release\PawnFall_1.1.0.0_ARM.appx
+SymbolPackage=C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\AppPackages\PawnFall_1.1.0.0_Test\PawnFall_1.1.0.0_ARM.appxsym
+ResourcePack=C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\ARM\Release\PawnFall_1.1.0.0_scale-100.appx
+ResourcePack=C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\ARM\Release\PawnFall_1.1.0.0_scale-125.appx
+ResourcePack=C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\ARM\Release\PawnFall_1.1.0.0_scale-150.appx
+ResourcePack=C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\ARM\Release\PawnFall_1.1.0.0_scale-400.appx

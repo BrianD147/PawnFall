@@ -122,7 +122,6 @@ C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Debug\S
 C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Debug\System.Xml.XDocument.dll
 C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Debug\System.Xml.XmlDocument.dll
 C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\bin\x86\Debug\System.Xml.XmlSerializer.dll
-C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\x86\Debug\PawnFall.csprojResolveAssemblyReference.cache
 C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\x86\Debug\App.g.i.cs
 C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\x86\Debug\App.g.cs
 C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\x86\Debug\MainPage.g.i.cs
@@ -211,3 +210,4 @@ C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\x86\Debug\q
 C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\obj\x86\Debug\PawnFall.csprojResolveAssemblyReference.cache

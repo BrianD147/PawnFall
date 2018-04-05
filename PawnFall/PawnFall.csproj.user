@@ -3,4 +3,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <UseSimulator>false</UseSimulator>
   </PropertyGroup>
+  <PropertyGroup>
+    <Source>C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\ScaleImage.png</Source>
+    <SmallTileSource>C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\ScaleImage.png</SmallTileSource>
+    <MediumTileSource>C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\ScaleImage.png</MediumTileSource>
+    <WideTileSource>C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\ScaleImage.png</WideTileSource>
+    <LargeTileSource>C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\ScaleImage.png</LargeTileSource>
+    <AppIconSource>C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\ScaleImage.png</AppIconSource>
+    <SplashScreenSource>C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\ScaleImage.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\Brian\Documents\College\Year3\App Dev\PawnFall\PawnFall\Assets\ScaleImage.png</PackageLogoSource>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxPackageIsForStore>True</AppxPackageIsForStore>
+    <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>true</UseEmulator>
+  </PropertyGroup>
 </Project>
